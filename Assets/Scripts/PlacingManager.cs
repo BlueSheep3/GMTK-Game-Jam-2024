@@ -14,11 +14,17 @@ class PlacingManager : MonoBehaviour
 	void Update() {
 		Vector2 mousePos = Input.mousePosition;
 		mousePos = Camera.main.ScreenToWorldPoint(mousePos);
-		currentPreviewShape.transform.position = mousePos;
-		
-		if(Input.GetMouseButtonDown(0) && currentPreviewShape.CanBePlacedHere()) {
+
+		bool canPlace = true;
+		if(Vector3.Distance(currentPreviewShape.transform.position, mousePos) > 3)
+			canPlace = false; // very sudden movement, probably didnt want to place it
+
+		// place before moving, so that the CanBePlacedHere check works
+		if(canPlace && Input.GetMouseButtonDown(0) && currentPreviewShape.CanBePlacedHere()) {
 			currentPreviewShape.Place();
 		}
+
+		currentPreviewShape.transform.position = mousePos;
 	}
 
 
