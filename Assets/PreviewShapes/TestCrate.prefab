@@ -46,7 +46,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7eb3022569681814eb9307a52832ff3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  placingShape: {fileID: 0}
+  placingShape: {fileID: 6426299871072068965, guid: c3ed5caf2f771b149b32d5964c332e76, type: 3}
+  sr: {fileID: 3043541562010124665}
 --- !u!212 &3043541562010124665
 SpriteRenderer:
   m_ObjectHideFlags: 0
