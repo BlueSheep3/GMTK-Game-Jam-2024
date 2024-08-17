@@ -28,6 +28,7 @@ class PlacingManager : MonoBehaviour
 			if(recentShapes.Count > 20) {
 				recentShapes.Dequeue();
 			}
+			SelectRandomShape();
 		}
 
 		currentPreviewShape.transform.position = mousePos;
@@ -36,6 +37,7 @@ class PlacingManager : MonoBehaviour
 
 	void SelectRandomShape() {
 		// TODO select a random shape based on difficulty
+		if(currentPreviewShape) Destroy(currentPreviewShape.gameObject);
 		PreviewShape shape = previewShapes[Random.Range(0, previewShapes.Length)];
 		currentPreviewShape = Instantiate(shape);
 	}
