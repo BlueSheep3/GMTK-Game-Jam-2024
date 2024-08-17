@@ -1,8 +1,11 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 class PlacingManager : MonoBehaviour
 {
 	[SerializeField] PreviewShape[] previewShapes;
+
+	public static Queue<Shape> recentShapes = new();
 	
 	PreviewShape currentPreviewShape = null;
 
@@ -17,7 +20,10 @@ class PlacingManager : MonoBehaviour
 		currentPreviewShape.transform.position = mousePos;
 		
 		if(Input.GetMouseButtonDown(0) && currentPreviewShape.CanBePlacedHere()) {
-			currentPreviewShape.Place();
+			recentShapes.Enqueue(currentPreviewShape.Place());
+			if(recentShapes.Count > 20) {
+				recentShapes.Dequeue();
+			}
 		}
 	}
 

@@ -10,7 +10,7 @@ class PreviewShape : MonoBehaviour
 		return true;
 	}
 
-	public void Place() {
-		// TODO
+	public Shape Place() {
+		throw new System.NotImplementedException();
 	}
 }
