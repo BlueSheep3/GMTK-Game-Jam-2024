@@ -17,7 +17,9 @@ class GameCamera : MonoBehaviour
 			}
 		}
 		minSize = minSize.LimitMinSize(new Vector2(8, 5));
-		cam.transform.position = minSize.center;
-		cam.orthographicSize = Mathf.Max(minSize.size.x / 2, minSize.size.y) * 0.5f;
+		Vector2 targetPosition = minSize.center;
+		cam.transform.position = Vector2.Lerp(cam.transform.position, targetPosition, 0.05f).WithZ(-10f);
+		float targetScale = Mathf.Max(minSize.size.x / 2, minSize.size.y);
+		cam.orthographicSize = Mathf.Lerp(cam.orthographicSize, targetScale, 0.05f);
 	}
 }

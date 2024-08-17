@@ -29,4 +29,8 @@ static class CMath
 		}
 		return rect;
 	}
+
+	public static Vector3 WithZ(this Vector2 vector, float value) {
+		return new Vector3(vector.x, vector.y, value);
+	}
 }
