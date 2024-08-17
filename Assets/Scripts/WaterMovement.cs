@@ -9,8 +9,9 @@ class WaterMovement : MonoBehaviour
 	}
 
 	void FixedUpdate() {
-		float sin = Mathf.Sin(Time.time / 50);
-		Vector2 offset = new Vector2(0.2f * sin, sin) * 20;
+		float cos = Mathf.Cos(Time.time);
+		float halfSin = Mathf.Sin(Time.time / 2);
+		Vector2 offset = new Vector2(halfSin, -cos / 4);
 		transform.position = startingPosition + offset;
 	}
 }
