@@ -42,6 +42,10 @@ static class CMath
 		return rect;
 	}
 
+	public static Rect AddScale(this Rect rect, Vector2 scale) {
+		return new Rect(rect.position - scale / 2, rect.size + scale);
+	}
+
 	public static bool Contains(this Rect rect, Rect other) {
 		if(!rect.Contains(other.position)) return false;
 		if(!rect.Contains(other.position + new Vector2(other.width, other.height))) return false;
@@ -49,7 +53,7 @@ static class CMath
 	}
 
 	public static Rect WithScale(this Rect rect, Vector2 scale) {
-		return new Rect(rect.position - scale / 2, scale);
+		return new Rect(rect.center - scale / 2, scale);
 	}
 
 	public static Vector3 WithZ(this Vector2 vector, float value) {
