@@ -51,7 +51,15 @@ static class CMath
 		return new Rect(rect.center - scale / 2, scale);
 	}
 
+	public static Vector2 XY(this Vector3 vector) {
+		return new Vector3(vector.x, vector.y);
+	}
+
 	public static Vector3 WithZ(this Vector2 vector, float value) {
+		return new Vector3(vector.x, vector.y, value);
+	}
+
+	public static Vector3 SetZ(this Vector3 vector, float value) {
 		return new Vector3(vector.x, vector.y, value);
 	}
 
