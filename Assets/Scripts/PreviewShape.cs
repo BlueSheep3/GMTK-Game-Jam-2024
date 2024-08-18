@@ -29,6 +29,10 @@ class PreviewShape : MonoBehaviour
 	}
 
 
+	internal Sprite GetPreviewSprite() {
+		return sr.sprite;
+	}
+
 	public bool CanBePlacedHere() {
 		return collisionCount == 0;
 	}

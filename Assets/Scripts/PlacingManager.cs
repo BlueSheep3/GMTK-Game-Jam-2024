@@ -7,6 +7,7 @@ class PlacingManager : MonoBehaviour
 
 	[SerializeField] PreviewShape[] previewShapes;
 	[SerializeField] UiManager uiManager;
+	[SerializeField] Preview previewManager;
 
 	internal List<Shape> placedShapes = new();
 	internal int maxHeight = 0;
@@ -29,6 +30,7 @@ class PlacingManager : MonoBehaviour
 		for(int i = 0; i < 5; i++) {
 			previewShapeQueue.Enqueue(GetPreviewShape());
 		}
+		previewManager.StartFunc();
 		SelectRandomShape();
 	}
 
@@ -43,6 +45,7 @@ class PlacingManager : MonoBehaviour
 		// place before moving, so that the CanBePlacedHere check works
 		if(canPlace && !isPlacing && Input.GetMouseButtonDown(0) && currentPreviewShape.CanBePlacedHere()) {
 			placedShapes.Add(currentPreviewShape.Place());
+			previewManager.GoNext();
 			isPlacing = true;
 			SelectRandomShape();
 		}
@@ -63,7 +66,6 @@ class PlacingManager : MonoBehaviour
 	}
 
 	void SelectRandomShape() {
-		// TODO select a random shape based on difficulty
 		PreviewShape shape = previewShapeQueue.Dequeue();
 		currentPreviewShape = Instantiate(shape);
 		previewShapeQueue.Enqueue(GetPreviewShape());
@@ -94,5 +96,13 @@ class PlacingManager : MonoBehaviour
 	public void Restart() {
 		GameCamera.follow = true;
 		UnityEngine.SceneManagement.SceneManager.LoadScene("Game");
+	}
+
+	internal List<(Sprite, string)> GetPreviewSprites() {
+		List<(Sprite, string)> sprites = new();
+		foreach(PreviewShape shape in previewShapeQueue) {
+			sprites.Add((shape.GetPreviewSprite(), shape.gameObject.name));
+		}
+		return sprites;
 	}
 }
