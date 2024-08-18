@@ -2,8 +2,11 @@ using UnityEngine;
 
 class Shape : MonoBehaviour
 {
+	[SerializeField] Rigidbody2D rb;
+
 	bool hasCollided = false;
 	internal bool enabeled = false;
+
 
 	void OnCollisionEnter2D(Collision2D collision) {
 		if(!enabeled) return;
@@ -16,7 +19,8 @@ class Shape : MonoBehaviour
 
 	void OnTriggerEnter2D(Collider2D other) {
 		if(!enabeled) return;
-		if(other.CompareTag("Water")) {
+		if(other.TryGetComponent(out WaterTrigger wt)) {
+			wt.SpawnSplash(transform.position.x, rb.velocity.magnitude, rb.mass);
 			PlacingManager.Inst?.EndGame();
 		}
 	}
