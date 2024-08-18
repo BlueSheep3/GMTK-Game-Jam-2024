@@ -25,7 +25,7 @@ class PlacingManager : MonoBehaviour
 		// place before moving, so that the CanBePlacedHere check works
 		if(canPlace && Input.GetMouseButtonDown(0) && currentPreviewShape.CanBePlacedHere()) {
 			recentShapes.Enqueue(currentPreviewShape.Place());
-			if(recentShapes.Count > 20) {
+			if(recentShapes.Count > 5) {
 				recentShapes.Dequeue();
 			}
 			SelectRandomShape();

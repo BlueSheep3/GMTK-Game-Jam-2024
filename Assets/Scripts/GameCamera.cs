@@ -9,13 +9,11 @@ class GameCamera : MonoBehaviour
 
 	void Start() {
 		minSize = GetSize(Camera.main) - buffer;
-		Debug.Log(minSize);
 	}
 
 	void FixedUpdate() {
 		Queue<Shape> shapes = PlacingManager.recentShapes;
 		if(shapes.Count == 0) return;
-		Camera cam = Camera.main;
 		Rect targetRect = new(shapes.First().transform.position, new(0, 0));
 		foreach(Shape shape in shapes) {
 			Vector2 p = shape.transform.position;
@@ -24,8 +22,10 @@ class GameCamera : MonoBehaviour
 			}
 		}
 
-		Rect camRect = GetRect(cam).AddScale(-buffer);
-		// if(camRect.Contains(targetRect)) return;
+		// FIXME when something falls the buffer becomes bigger
+
+		Camera cam = Camera.main;
+		Rect camRect = GetRect(cam);
 		Vector2 targetSize = targetRect.size;
 		targetSize = Vector2.Max(targetSize, minSize);
 		camRect = camRect.WithScale(targetSize);
@@ -34,9 +34,9 @@ class GameCamera : MonoBehaviour
 		targetRect = targetRect.AddScale(buffer);
 
 		Vector2 targetPosition = targetRect.center;
-		cam.transform.position = Vector2.Lerp(cam.transform.position, targetPosition, 0.0125f).WithZ(-10f);
+		cam.transform.position = Vector2.Lerp(cam.transform.position, targetPosition, 0.025f).WithZ(-10f);
 		float targetScale = Mathf.Max(targetRect.size.x / cam.aspect, targetRect.size.y);
-		cam.orthographicSize = Mathf.Lerp(cam.orthographicSize, targetScale, 0.0125f);
+		cam.orthographicSize = Mathf.Lerp(cam.orthographicSize, targetScale, 0.025f);
 	}
 
 	Rect GetRect(Camera cam) {

@@ -21,25 +21,20 @@ static class CMath
 		Vector2 otherSize = other.size;
 		if(size.x < otherSize.x) throw new System.Exception("Can't encapsulate a bigger rect in a smaller one");
 		if(size.y < otherSize.y) throw new System.Exception("Can't encapsulate a bigger rect in a smaller one");
-		if(rect.xMin > other.xMin) rect.xMin = other.xMin;
-		else if(rect.xMax < other.xMax) rect.xMax = other.xMax;
-		if(rect.yMin > other.yMin) rect.yMin = other.yMin;
-		else if(rect.yMax < other.yMax) rect.yMax = other.yMax;
+		if(rect.xMin > other.xMin) rect.x = other.xMin;
+		else if(rect.xMax < other.xMax) rect.x = other.xMax - rect.width;
+		if(rect.yMin > other.yMin) rect.y = other.yMin;
+		else if(rect.yMax < other.yMax) rect.y = other.yMax - rect.height;
 		return rect;
 	}
 
-	public static Rect LimitMinSize(this Rect rect, Vector2 minSize){
-		if(rect.width < minSize.x) {
-			float midX = rect.xMin + rect.width / 2;
-			rect.xMax = midX + minSize.x / 2;
-			rect.xMin = midX - minSize.x / 2;
+	public static Rect AdjustRatio(this Rect rect, float ratio) {
+		if(rect.width < rect.height * ratio) {
+			Vector2 s = new(rect.height * ratio, rect.height);
+			return new Rect(rect.center - s / 2, s);
 		}
-		if(rect.height < minSize.y) {
-			float midY = rect.yMin + rect.height / 2;
-			rect.yMax = midY + minSize.y / 2;
-			rect.yMin = midY - minSize.y / 2;
-		}
-		return rect;
+		Vector2 scale = new(rect.width, rect.width / ratio);
+		return new Rect(rect.center - scale / 2, scale);
 	}
 
 	public static Rect AddScale(this Rect rect, Vector2 scale) {
