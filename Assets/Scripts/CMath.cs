@@ -71,10 +71,11 @@ static class CMath
 		return c;
 	}
 
-	public static int BinomialRandom(float avgPoint, float variance, int maxValue) {
-		// avgPoint is the most common point
-		int n = Mathf.RoundToInt(1 / variance);
-		float p = avgPoint * variance;
-		return Mathf.Min(BinomialRandom(n, p), maxValue);
+	public static int BinomialRandom(float n, float p) {
+		int c = 0;
+		for(int i = 0; i < n; i++) {
+			if(Random.value < p) c++;
+		} if(Random.value < p * (n % 1)) c++;
+		return c;
 	}
 }

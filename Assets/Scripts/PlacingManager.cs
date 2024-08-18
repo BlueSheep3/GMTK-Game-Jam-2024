@@ -80,9 +80,8 @@ class PlacingManager : MonoBehaviour
 	PreviewShape GetPreviewShape() {
 		int len = previewShapes.Length - 1;
 		difficulty += 1 / 5f;
-		// when variance is 1 / x it can only go to x
-		float variance = 1f / Mathf.Min(len, (int)difficulty + 3);
-		return previewShapes[CMath.BinomialRandom(difficulty, variance, len)];
+		int index = CMath.BinomialRandom(difficulty, 0.8f);
+		return previewShapes[Mathf.Min(index, len)];
 	}
 
 	public List<Shape> GetLastShapes(int count) {
@@ -95,6 +94,7 @@ class PlacingManager : MonoBehaviour
 	}
 
 	internal void UpdateHeight(float height) {
+		height += 1.2f;
 		height *= 1.75f;
 		if(maxHeight < height) maxHeight = Mathf.RoundToInt(height);
 	}
