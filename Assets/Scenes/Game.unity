@@ -1231,6 +1231,8 @@ MonoBehaviour:
   previewShapes:
   - {fileID: 3043541562010124664, guid: c5f044ed5cc2e0f4ba7f0c3f8620e134, type: 3}
   - {fileID: 3712403262850562317, guid: a436ce34182f4ae48adb1afcc539c57a, type: 3}
+  - {fileID: 7956986540565972768, guid: 9e66941028b6cb94fb9c487b9c1227d5, type: 3}
+  - {fileID: 7956986540565972768, guid: 0ec501b08329e5b4a9cace81e29aae3f, type: 3}
 --- !u!4 &1769898242
 Transform:
   m_ObjectHideFlags: 0
