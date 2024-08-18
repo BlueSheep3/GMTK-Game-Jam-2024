@@ -576,10 +576,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Water
       objectReference: {fileID: 0}
-    - target: {fileID: 4765483692332564491, guid: 1461b65da4c2b5e43bb9ea1c637064ab, type: 3}
-      propertyPath: m_TagString
-      value: Water
-      objectReference: {fileID: 0}
     - target: {fileID: 9203015830268239908, guid: 1461b65da4c2b5e43bb9ea1c637064ab, type: 3}
       propertyPath: m_RootOrder
       value: 7

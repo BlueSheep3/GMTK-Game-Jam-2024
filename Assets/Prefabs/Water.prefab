@@ -113,6 +113,7 @@ GameObject:
   - component: {fileID: 1586634943552228287}
   - component: {fileID: 8639349385510605457}
   - component: {fileID: 6597401777308322626}
+  - component: {fileID: 5121723657333026381}
   m_Layer: 0
   m_Name: Square
   m_TagString: Untagged
@@ -213,3 +214,17 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &5121723657333026381
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4765483692332564491}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9c40e158e3e2864281bcc2b49e59dc1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waterSplash: {fileID: 1264740307769934099, guid: 991fc6297131bbc47b6417e889262242, type: 3}
+  yOffset: -0.2
