@@ -7,9 +7,8 @@ class PlacingManager : MonoBehaviour
 
 	[SerializeField] PreviewShape[] previewShapes;
 
-	public static List<Shape> placedShapes = new();
-
-	
+	internal static List<Shape> placedShapes = new();
+	internal float maxHeight = 0;
 	PreviewShape currentPreviewShape = null;
 
 
@@ -59,12 +58,7 @@ class PlacingManager : MonoBehaviour
 		return placedShapes.GetRange(startIndex, count);
 	}
 
-	internal float GetHeight() {
-		float height = 0;
-		for(int i = placedShapes.Count - 1; i >= 0; i--) {
-			if(placedShapes[i].transform.position.y > height)
-				height = placedShapes[i].transform.position.y;
-		}
-		return height;
+	internal void UpdateHeight(float height) {
+		if(maxHeight < height) maxHeight = height;
 	}
 }
