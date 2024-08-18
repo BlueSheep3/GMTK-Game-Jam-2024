@@ -12,7 +12,7 @@ class PlacingManager : MonoBehaviour
 	internal int maxHeight = 0;
 	internal bool isPlacing = false;
 
-	float difficulty = 0;
+	float difficulty = 1;
 	Queue<PreviewShape> previewShapeQueue = new();
 	PreviewShape currentPreviewShape;
 
@@ -72,6 +72,7 @@ class PlacingManager : MonoBehaviour
 	PreviewShape GetPreviewShape() {
 		int len = previewShapes.Length - 1;
 		float variance = 1 / len;
+		difficulty += variance / 5f;
 		return previewShapes[CMath.BinomialRandom(difficulty, variance, len)];
 	}
 

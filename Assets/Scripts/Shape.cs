@@ -13,6 +13,8 @@ class Shape : MonoBehaviour
 	}
 
 	void OnTriggerEnter2D(Collider2D other) {
-		PlacingManager.Inst?.EndGame();
+		if(other.CompareTag("Water")) {
+			PlacingManager.Inst?.EndGame();
+		}
 	}
 }
