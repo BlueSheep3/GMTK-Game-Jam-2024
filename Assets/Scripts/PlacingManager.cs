@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using static Savedata;
 
 class PlacingManager : MonoBehaviour
 {
@@ -8,7 +9,8 @@ class PlacingManager : MonoBehaviour
 	[SerializeField] PreviewShape[] previewShapes;
 
 	internal static List<Shape> placedShapes = new();
-	internal float maxHeight = 0;
+	internal int maxHeight = 0;
+	internal bool isPlacing = false;
 	PreviewShape currentPreviewShape = null;
 
 
@@ -33,14 +35,24 @@ class PlacingManager : MonoBehaviour
 			canPlace = false; // very sudden movement, probably didnt want to place it
 
 		// place before moving, so that the CanBePlacedHere check works
-		if(canPlace && Input.GetMouseButtonDown(0) && currentPreviewShape.CanBePlacedHere()) {
+		if(canPlace && !isPlacing && Input.GetMouseButtonDown(0) && currentPreviewShape.CanBePlacedHere()) {
 			placedShapes.Add(currentPreviewShape.Place());
+			isPlacing = true;
 			SelectRandomShape();
 		}
 
 		currentPreviewShape.transform.position = mousePos;
 	}
 
+
+	internal void EndGame() {
+		// TODO open buttons to retry
+		GameCamera.follow = false;
+		Settings settings = Savedata.settings;
+		if(settings.maxHeight < maxHeight) settings.maxHeight = maxHeight;
+		if(settings.maxShapes < placedShapes.Count) settings.maxShapes = placedShapes.Count;
+		Destroy(gameObject);
+	}
 
 	void SelectRandomShape() {
 		// TODO select a random shape based on difficulty
@@ -59,6 +71,6 @@ class PlacingManager : MonoBehaviour
 	}
 
 	internal void UpdateHeight(float height) {
-		if(maxHeight < height) maxHeight = height;
+		if(maxHeight < height) maxHeight = Mathf.RoundToInt(height);
 	}
 }
