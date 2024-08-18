@@ -54,4 +54,18 @@ static class CMath
 	public static Vector3 WithZ(this Vector2 vector, float value) {
 		return new Vector3(vector.x, vector.y, value);
 	}
+
+	public static int BinomialRandom(int n, float p) {
+		int c = 0;
+		for(int i = 0; i < n; i++) {
+			if(Random.value < p) c++;
+		}
+		return c;
+	}
+
+	public static int BinomialRandom(float maxPoint, float variance, int maxValue) {
+		int n = Mathf.RoundToInt(1 / variance);
+		float p = maxPoint * variance;
+		return Mathf.Min(BinomialRandom(n, p), maxValue);
+	}
 }

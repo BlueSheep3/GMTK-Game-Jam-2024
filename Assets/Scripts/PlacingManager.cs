@@ -11,8 +11,10 @@ class PlacingManager : MonoBehaviour
 	internal static List<Shape> placedShapes = new();
 	internal int maxHeight = 0;
 	internal bool isPlacing = false;
-	PreviewShape currentPreviewShape = null;
 
+	float difficulty = 0;
+	Queue<PreviewShape> previewShapeQueue = new();
+	PreviewShape currentPreviewShape;
 
 	void Awake() {
 		if(Inst == null) Inst = this;
@@ -23,6 +25,9 @@ class PlacingManager : MonoBehaviour
 	}
 
 	void Start() {
+		for(int i = 0; i < 5; i++) {
+			previewShapeQueue.Enqueue(GetPreviewShape());
+		}
 		SelectRandomShape();
 	}
 
@@ -51,14 +56,23 @@ class PlacingManager : MonoBehaviour
 		Settings settings = Savedata.settings;
 		if(settings.maxHeight < maxHeight) settings.maxHeight = maxHeight;
 		if(settings.maxShapes < placedShapes.Count) settings.maxShapes = placedShapes.Count;
-		Destroy(gameObject);
+		Save(settings);
+		Debug.Log("game ended");
+		// Destroy(gameObject);
 	}
 
 	void SelectRandomShape() {
 		// TODO select a random shape based on difficulty
 		if(currentPreviewShape) Destroy(currentPreviewShape.gameObject);
-		PreviewShape shape = previewShapes[Random.Range(0, previewShapes.Length)];
+		PreviewShape shape = previewShapeQueue.Dequeue();
 		currentPreviewShape = Instantiate(shape);
+		previewShapeQueue.Enqueue(GetPreviewShape());
+	}
+
+	PreviewShape GetPreviewShape() {
+		int len = previewShapes.Length - 1;
+		float variance = 1 / len;
+		return previewShapes[CMath.BinomialRandom(difficulty, variance, len)];
 	}
 
 	public static List<Shape> GetLastShapes(int count) {
