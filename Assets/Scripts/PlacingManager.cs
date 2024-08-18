@@ -11,10 +11,12 @@ class PlacingManager : MonoBehaviour
 	internal List<Shape> placedShapes = new();
 	internal int maxHeight = 0;
 	internal bool isPlacing = false;
+	bool gameHasEnded = false;
 
 	float difficulty = 0f;
 	Queue<PreviewShape> previewShapeQueue = new();
 	PreviewShape currentPreviewShape;
+
 
 	void Awake() {
 		if(Inst == null) Inst = this;
@@ -33,6 +35,8 @@ class PlacingManager : MonoBehaviour
 	}
 
 	void Update() {
+		if(gameHasEnded) return;
+
 		Vector2 mousePos = Input.mousePosition;
 		mousePos = Camera.main.ScreenToWorldPoint(mousePos);
 
@@ -57,9 +61,11 @@ class PlacingManager : MonoBehaviour
 
 	internal void EndGame() {
 		GameCamera.follow = false;
-		isPlacing = true;
+		gameHasEnded = true;
 		if(placedShapes[^1]) placedShapes[^1].hasCollided = true;
 		uiManager.EndGame();
+		Destroy(currentPreviewShape.gameObject);
+		currentPreviewShape = null;
 	}
 
 	void SelectRandomShape() {
@@ -93,6 +99,11 @@ class PlacingManager : MonoBehaviour
 
 	public void Restart() {
 		GameCamera.follow = true;
-		UnityEngine.SceneManagement.SceneManager.LoadScene("Game");
+		Scenes.Reload();
+	}
+
+	public void Quit() {
+		GameCamera.follow = true;
+		Scenes.Id.MainMenu.Load();
 	}
 }

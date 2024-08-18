@@ -23,10 +23,19 @@ class UiManager : MonoBehaviour
 		PlacingManager pm = PlacingManager.Inst;
 		int height = pm.maxHeight;
 		int count = pm.placedShapes.Count;
-		finalScoreText.text = "Height: " + height + "m\nShapes: " + count;
+		finalScoreText.text = "Game Over!";
+		bool gotNewHighscore = false;
 		Settings settings = Savedata.settings;
-		if(settings.maxHeight < height) settings.maxHeight = height;
-		if(settings.maxShapes < count) settings.maxShapes = count;
+		if(settings.maxHeight < height) {
+			settings.maxHeight = height;
+			gotNewHighscore = true;
+		}
+		if(settings.maxShapes < count) {
+			settings.maxShapes = count;
+			gotNewHighscore = true;
+		}
+		if(gotNewHighscore)
+			finalScoreText.text = "New Highscore!";
 		Save(settings);
 	}
 }
