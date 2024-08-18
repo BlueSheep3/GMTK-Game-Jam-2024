@@ -2,11 +2,14 @@ using UnityEngine;
 
 class PreviewShape : MonoBehaviour
 {
-	[SerializeField] Shape placingShape;
 	[SerializeField] SpriteRenderer sr;
 
 	int collisionCount = 0;
 
+
+	void Awake() {
+		CanNowBePlaced();
+	}
 
 	void OnTriggerEnter2D(Collider2D other) {
 		if(collisionCount == 0) CanNoLongerBePlaced();
@@ -28,7 +31,18 @@ class PreviewShape : MonoBehaviour
 	}
 
 	public Shape Place() {
-		return Instantiate(placingShape, transform.position, Quaternion.identity);
+		if(!gameObject.TryGetComponent(out Shape shape)) Debug.LogError("no shape script on the object");
+		shape.enabled = true;
+		shape.enabeled = true;
+		if(gameObject.TryGetComponent(out Rigidbody2D rb)) {
+			rb.bodyType = RigidbodyType2D.Dynamic;
+		}
+		if(gameObject.TryGetComponent(out Collider2D col)) {
+			col.isTrigger = false;
+		}
+		sr.color = new Color(1, 1, 1, 1);
+		Destroy(this);
+		return shape;
 	}
 
 

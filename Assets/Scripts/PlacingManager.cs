@@ -64,7 +64,6 @@ class PlacingManager : MonoBehaviour
 
 	void SelectRandomShape() {
 		// TODO select a random shape based on difficulty
-		if(currentPreviewShape) Destroy(currentPreviewShape.gameObject);
 		PreviewShape shape = previewShapeQueue.Dequeue();
 		currentPreviewShape = Instantiate(shape);
 		previewShapeQueue.Enqueue(GetPreviewShape());
@@ -72,9 +71,9 @@ class PlacingManager : MonoBehaviour
 
 	PreviewShape GetPreviewShape() {
 		int len = previewShapes.Length - 1;
-		// when variance is 1 / x it can only go to x
-		float variance = 1f / len;
 		difficulty += 1 / 10f;
+		// when variance is 1 / x it can only go to x
+		float variance = 1f / Mathf.Min(len, (int)difficulty + 3);
 		return previewShapes[CMath.BinomialRandom(difficulty, variance, len)];
 	}
 
