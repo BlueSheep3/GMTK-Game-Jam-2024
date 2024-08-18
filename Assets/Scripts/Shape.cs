@@ -4,7 +4,7 @@ class Shape : MonoBehaviour
 {
 	[SerializeField] Rigidbody2D rb;
 
-	bool hasCollided = false;
+	internal bool hasCollided = false;
 	internal bool enabeled = false;
 
 
@@ -21,7 +21,7 @@ class Shape : MonoBehaviour
 		if(!enabeled) return;
 		if(other.TryGetComponent(out WaterTrigger wt)) {
 			wt.SpawnSplash(transform.position.x, rb.velocity.magnitude, rb.mass);
-			PlacingManager.Inst?.EndGame();
+			if(GameCamera.follow) PlacingManager.Inst.EndGame();
 		}
 	}
 }

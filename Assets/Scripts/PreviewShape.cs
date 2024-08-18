@@ -9,6 +9,9 @@ class PreviewShape : MonoBehaviour
 
 	void Awake() {
 		CanNowBePlaced();
+		if(gameObject.TryGetComponent(out Rigidbody2D rb)) {
+			rb.bodyType = RigidbodyType2D.Kinematic;
+		}
 	}
 
 	void OnTriggerEnter2D(Collider2D other) {

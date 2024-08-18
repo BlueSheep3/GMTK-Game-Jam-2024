@@ -1,14 +1,14 @@
 using System.Collections.Generic;
 using UnityEngine;
-using static Savedata;
 
 class PlacingManager : MonoBehaviour
 {
 	public static PlacingManager Inst;
 
 	[SerializeField] PreviewShape[] previewShapes;
+	[SerializeField] UiManager uiManager;
 
-	internal static List<Shape> placedShapes = new();
+	internal List<Shape> placedShapes = new();
 	internal int maxHeight = 0;
 	internal bool isPlacing = false;
 
@@ -19,7 +19,8 @@ class PlacingManager : MonoBehaviour
 	void Awake() {
 		if(Inst == null) Inst = this;
 		else {
-			Destroy(this);
+			Destroy(Inst);
+			Inst = this;
 			Debug.LogError("shouldn't have 2 placing managers at once");
 		}
 	}
@@ -49,17 +50,16 @@ class PlacingManager : MonoBehaviour
 		currentPreviewShape.transform.position = mousePos;
 	}
 
+	void OnDestroy() {
+		Inst = null;
+	}
+
 
 	internal void EndGame() {
-		// TODO open buttons to retry
 		GameCamera.follow = false;
-		// isPlacing = true;
-		Settings settings = Savedata.settings;
-		if(settings.maxHeight < maxHeight) settings.maxHeight = maxHeight;
-		if(settings.maxShapes < placedShapes.Count) settings.maxShapes = placedShapes.Count;
-		Save(settings);
-		Debug.Log("game ended");
-		// Destroy(gameObject);
+		isPlacing = true;
+		if(placedShapes[^1]) placedShapes[^1].hasCollided = true;
+		uiManager.EndGame();
 	}
 
 	void SelectRandomShape() {
@@ -71,13 +71,13 @@ class PlacingManager : MonoBehaviour
 
 	PreviewShape GetPreviewShape() {
 		int len = previewShapes.Length - 1;
-		difficulty += 1 / 10f;
+		difficulty += 1 / 5f;
 		// when variance is 1 / x it can only go to x
 		float variance = 1f / Mathf.Min(len, (int)difficulty + 3);
 		return previewShapes[CMath.BinomialRandom(difficulty, variance, len)];
 	}
 
-	public static List<Shape> GetLastShapes(int count) {
+	public List<Shape> GetLastShapes(int count) {
 		int startIndex = placedShapes.Count - count;
 		if(startIndex < 0) {
 			startIndex = 0;
@@ -87,6 +87,12 @@ class PlacingManager : MonoBehaviour
 	}
 
 	internal void UpdateHeight(float height) {
+		height *= 1.75f;
 		if(maxHeight < height) maxHeight = Mathf.RoundToInt(height);
+	}
+
+	public void Restart() {
+		GameCamera.follow = true;
+		UnityEngine.SceneManagement.SceneManager.LoadScene("Game");
 	}
 }

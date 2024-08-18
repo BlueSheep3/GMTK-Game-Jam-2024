@@ -13,11 +13,7 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: 2593eae0ea703a04699861ee910c0b7b, type: 3}
     - target: {fileID: 6426299871072068970, guid: c3ed5caf2f771b149b32d5964c332e76, type: 3}
       propertyPath: m_Mass
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 6426299871072068970, guid: c3ed5caf2f771b149b32d5964c332e76, type: 3}
-      propertyPath: m_BodyType
-      value: 0
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6426299871072068970, guid: c3ed5caf2f771b149b32d5964c332e76, type: 3}
       propertyPath: m_Material
