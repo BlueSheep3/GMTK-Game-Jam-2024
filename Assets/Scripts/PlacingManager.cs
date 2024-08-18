@@ -53,6 +53,7 @@ class PlacingManager : MonoBehaviour
 	internal void EndGame() {
 		// TODO open buttons to retry
 		GameCamera.follow = false;
+		// isPlacing = true;
 		Settings settings = Savedata.settings;
 		if(settings.maxHeight < maxHeight) settings.maxHeight = maxHeight;
 		if(settings.maxShapes < placedShapes.Count) settings.maxShapes = placedShapes.Count;
@@ -71,6 +72,7 @@ class PlacingManager : MonoBehaviour
 
 	PreviewShape GetPreviewShape() {
 		int len = previewShapes.Length - 1;
+		// when variance is 1 / x it can only go to x
 		float variance = 1f / len;
 		difficulty += 1 / 10f;
 		return previewShapes[CMath.BinomialRandom(difficulty, variance, len)];
