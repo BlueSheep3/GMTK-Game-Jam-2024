@@ -14,7 +14,7 @@ class GameCamera : MonoBehaviour
 
 	void FixedUpdate() {
 		if(!follow) return;
-		List<Shape> shapes = PlacingManager.GetLastShapes(10);
+		List<Shape> shapes = PlacingManager.Inst.GetLastShapes(10);
 		if(shapes.Count == 0) return;
 		Rect targetRect = new(shapes.First().transform.position, new(0, 0));
 		foreach(Shape shape in shapes) {

@@ -68,6 +68,10 @@ PrefabInstance:
       value: SBlock
       objectReference: {fileID: 0}
     - target: {fileID: 7637892254971714004, guid: c3ed5caf2f771b149b32d5964c332e76, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: 00793d9d017391a47b5e2728a70e9237, type: 2}
+    - target: {fileID: 7637892254971714004, guid: c3ed5caf2f771b149b32d5964c332e76, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
       value: 3
       objectReference: {fileID: 0}
