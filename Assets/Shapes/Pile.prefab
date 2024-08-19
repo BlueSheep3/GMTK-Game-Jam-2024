@@ -10,15 +10,15 @@ PrefabInstance:
     - target: {fileID: 6426299871072068969, guid: c3ed5caf2f771b149b32d5964c332e76, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 4ea203cc6b1f7f74181564ac77730dd1, type: 3}
+      objectReference: {fileID: 21300000, guid: efe2efc988e25b144b1ee380dc2d36c9, type: 3}
     - target: {fileID: 6426299871072068970, guid: c3ed5caf2f771b149b32d5964c332e76, type: 3}
       propertyPath: m_Mass
-      value: 0.5
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 6426299871072068970, guid: c3ed5caf2f771b149b32d5964c332e76, type: 3}
       propertyPath: m_Material
       value: 
-      objectReference: {fileID: 6200000, guid: b2352009706058e4997ccfd9e797f8cd, type: 2}
+      objectReference: {fileID: 6200000, guid: b067d28ff6b192e42b6b325dfc6ed021, type: 2}
     - target: {fileID: 6426299871072068971, guid: c3ed5caf2f771b149b32d5964c332e76, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -65,19 +65,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6426299871072068975, guid: c3ed5caf2f771b149b32d5964c332e76, type: 3}
       propertyPath: m_Name
-      value: Plank
+      value: Pile
       objectReference: {fileID: 0}
     - target: {fileID: 7637892254971714004, guid: c3ed5caf2f771b149b32d5964c332e76, type: 3}
       propertyPath: m_Material
       value: 
-      objectReference: {fileID: 6200000, guid: b2352009706058e4997ccfd9e797f8cd, type: 2}
+      objectReference: {fileID: 6200000, guid: b067d28ff6b192e42b6b325dfc6ed021, type: 2}
     - target: {fileID: 7637892254971714004, guid: c3ed5caf2f771b149b32d5964c332e76, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 4
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7637892254971714004, guid: c3ed5caf2f771b149b32d5964c332e76, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 0.16
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7637892254971714004, guid: c3ed5caf2f771b149b32d5964c332e76, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.size
@@ -85,35 +85,35 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7637892254971714004, guid: c3ed5caf2f771b149b32d5964c332e76, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[0].x
-      value: -1.91
+      value: -0.1910059
       objectReference: {fileID: 0}
     - target: {fileID: 7637892254971714004, guid: c3ed5caf2f771b149b32d5964c332e76, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[0].y
-      value: -0.07
+      value: 0.9865526
       objectReference: {fileID: 0}
     - target: {fileID: 7637892254971714004, guid: c3ed5caf2f771b149b32d5964c332e76, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[1].x
-      value: 1.9
+      value: -0.17956364
       objectReference: {fileID: 0}
     - target: {fileID: 7637892254971714004, guid: c3ed5caf2f771b149b32d5964c332e76, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[1].y
-      value: -0.07
+      value: -0.7995244
       objectReference: {fileID: 0}
     - target: {fileID: 7637892254971714004, guid: c3ed5caf2f771b149b32d5964c332e76, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[2].x
-      value: 1.9
+      value: 0.19777668
       objectReference: {fileID: 0}
     - target: {fileID: 7637892254971714004, guid: c3ed5caf2f771b149b32d5964c332e76, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[2].y
-      value: 0.07
+      value: -0.7936898
       objectReference: {fileID: 0}
     - target: {fileID: 7637892254971714004, guid: c3ed5caf2f771b149b32d5964c332e76, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[3].x
-      value: -1.9
+      value: 0.21310516
       objectReference: {fileID: 0}
     - target: {fileID: 7637892254971714004, guid: c3ed5caf2f771b149b32d5964c332e76, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[3].y
-      value: 0.07
+      value: 0.9923873
       objectReference: {fileID: 0}
     - target: {fileID: 7637892254971714004, guid: c3ed5caf2f771b149b32d5964c332e76, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[4].x
@@ -155,5 +155,52 @@ PrefabInstance:
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[8].y
       value: 0.296019
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6426299871072068965, guid: c3ed5caf2f771b149b32d5964c332e76, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: c3ed5caf2f771b149b32d5964c332e76, type: 3}
+--- !u!1 &281690549873187466 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6426299871072068975, guid: c3ed5caf2f771b149b32d5964c332e76, type: 3}
+  m_PrefabInstance: {fileID: 6540926225863753701}
+  m_PrefabAsset: {fileID: 0}
+--- !u!58 &3087961722987060882
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 281690549873187466}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.95}
+  serializedVersion: 2
+  m_Radius: 0.09
+--- !u!114 &2162278019917110216
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 281690549873187466}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47a370e859ff79345af18d61047c6f46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 281690549873187471}
+  audioSource: {fileID: 2227630536635779495}
+  clip: {fileID: 0}
+--- !u!50 &281690549873187471 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 6426299871072068970, guid: c3ed5caf2f771b149b32d5964c332e76, type: 3}
+  m_PrefabInstance: {fileID: 6540926225863753701}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &2227630536635779495 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 4912349212107617858, guid: c3ed5caf2f771b149b32d5964c332e76, type: 3}
+  m_PrefabInstance: {fileID: 6540926225863753701}
+  m_PrefabAsset: {fileID: 0}

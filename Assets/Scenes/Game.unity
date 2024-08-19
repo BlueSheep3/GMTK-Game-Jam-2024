@@ -1716,9 +1716,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previewShapes:
   - {fileID: 2415039020165097844, guid: c3ed5caf2f771b149b32d5964c332e76, type: 3}
+  - {fileID: 8882779132065273489, guid: db0b6dee4c471a241a702d8917d4db83, type: 3}
   - {fileID: 8882779132065273489, guid: 03c6a3efd9d7f8e4fa86996590247716, type: 3}
   - {fileID: 8882779132065273489, guid: db136909aba12b740946deb9d46a41d3, type: 3}
   - {fileID: 4761527184500548169, guid: 6387aaaca73e10c40ab2abf505ef72bf, type: 3}
+  - {fileID: 8882779132065273489, guid: cebf3b9698f7f334aaeeaa79b4474995, type: 3}
+  - {fileID: 8882779132065273489, guid: 0cfe4b059b6921742863f6dc29053bfb, type: 3}
   - {fileID: 8882779132065273489, guid: f407ea2054513f542a1099ceb2ef54c8, type: 3}
   - {fileID: 8882779132065273489, guid: faa217fe7e0809b4db89014ac1665d77, type: 3}
   - {fileID: 8882779132065273489, guid: a37f5ae26ae13d5418eea771766e825f, type: 3}
