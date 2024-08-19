@@ -34,7 +34,21 @@ class MainMenu : MonoBehaviour
 	}
 
 	public void ChangeFullscreen() {
-		Screen.fullScreen = !Screen.fullScreen;
+		if(Screen.fullScreen) {
+			Screen.SetResolution(1440, 810, false);
+		} else {
+			const float ASPECT_RATIO = 16f / 9f;
+			int width = Screen.currentResolution.width;
+			int height = Screen.currentResolution.height;
+			float aspectRatio = width / (float)height;
+
+			if(Mathf.Abs(aspectRatio - ASPECT_RATIO) < 0.01)
+				Screen.SetResolution(width, height, true);
+			else if(aspectRatio < ASPECT_RATIO)
+				Screen.SetResolution(width, (int)(width / ASPECT_RATIO), true);
+			else
+				Screen.SetResolution((int)(height * ASPECT_RATIO), height, true);
+		}
 	}
 
 	public void ChangeVolume() {
