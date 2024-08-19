@@ -95,7 +95,7 @@ class PlacingManager : MonoBehaviour
 
 	internal void UpdateHeight(float height) {
 		height += 1.2f;
-		height *= 1.75f;
+		height *= 3f;
 		if(maxHeight < height) maxHeight = Mathf.RoundToInt(height);
 	}
 

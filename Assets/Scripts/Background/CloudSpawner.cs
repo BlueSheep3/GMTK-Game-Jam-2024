@@ -6,11 +6,11 @@ class CloudSpawner : MonoBehaviour
 {
 	[SerializeField] Cloud cloudPrefab;
 
-	int downtimer = 400;
+	int downtimer = 500;
 
 	
 	void Start() {
-		for(int i = 0; i < 40; i++)
+		for(int i = 0; i < 30; i++)
 			SpawnCloud(true);
 	}
 
@@ -18,13 +18,13 @@ class CloudSpawner : MonoBehaviour
 		downtimer--;
 		if(downtimer <= 0) {
 			SpawnCloud(false);
-			downtimer = Random.Range(350, 1000);
+			downtimer = Random.Range(400, 800);
 		}
 	}
 
 
 	void SpawnCloud(bool randomX) {
-		float x = randomX ? Random.Range(-200, 250) : 250;
+		float x = randomX ? Random.Range(-80, 100) : 100;
 		float y = GetYPos();
 		Vector3 pos = new(x, y);
 		Instantiate(cloudPrefab, pos, Quaternion.identity, transform.parent);
@@ -32,7 +32,7 @@ class CloudSpawner : MonoBehaviour
 
 	float GetYPos() {
 		float rng = (Random.value + Random.value + Random.value) / 3f;
-		return 7f + 50f * rng;
+		return 50f * rng;
 	}
 }
 }

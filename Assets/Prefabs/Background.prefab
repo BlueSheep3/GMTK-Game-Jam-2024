@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f69724e511bb9694197e9d25534b2cfa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementMult: 0.85
+  movementMult: 0.7
   scaleMult: -1
 --- !u!114 &458992597906166219
 MonoBehaviour:
@@ -406,7 +406,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f69724e511bb9694197e9d25534b2cfa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementMult: 0.98
+  movementMult: 0.95
   scaleMult: 0.95
 --- !u!1 &458992599700187040
 GameObject:
@@ -505,5 +505,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f69724e511bb9694197e9d25534b2cfa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementMult: 0.85
+  movementMult: 0.7
   scaleMult: -1

@@ -20,7 +20,7 @@ class Cloud : MonoBehaviour
 
 	void Update() {
 		pos += Vector2.left * speed * Time.deltaTime;
-		if(pos.x < -250) Destroy(gameObject);
+		if(pos.x < -100) Destroy(gameObject);
 
 		Vector2 camPos = Camera.main.transform.position;
 		transform.position = camPos * parallaxMult + pos;
