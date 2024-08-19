@@ -13,7 +13,7 @@ class Pile : Shape
 			if(other.TryGetComponent(out PreviewShape ps)) return;
 		}
 		hasSpiked = true;
-		transform.position -= transform.up * 0.15f;
+		transform.position -= transform.up * 0.3f;
 		gameObject.AddComponent<FixedJoint2D>().connectedBody = other.attachedRigidbody;
 		OnCollision();
 	}
