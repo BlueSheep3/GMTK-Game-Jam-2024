@@ -78,4 +78,10 @@ static class CMath
 		} if(Random.value < p * (n % 1)) c++;
 		return c;
 	}
+
+	public static int WeightedRandom(int min, int max) {
+		float r1 = Random.value * (max - min + 1) + min;
+		float r2 = Random.value * (max - min + 1) + min;
+		return Mathf.RoundToInt((r1 + r2) / 2);
+	}
 }

@@ -14,7 +14,7 @@ class PlacingManager : MonoBehaviour
 	internal bool isPlacing = false;
 	bool gameHasEnded = false;
 
-	float difficulty = 0f;
+	float difficulty = 4f;
 	Queue<PreviewShape> previewShapeQueue = new();
 	PreviewShape currentPreviewShape;
 
@@ -78,10 +78,10 @@ class PlacingManager : MonoBehaviour
 	}
 
 	PreviewShape GetPreviewShape() {
-		int len = previewShapes.Length - 1;
 		difficulty += 1 / 5f;
-		int index = CMath.BinomialRandom(difficulty, 0.8f);
-		return previewShapes[Mathf.Min(index, len)];
+		difficulty = Mathf.Clamp(difficulty, 0, previewShapes.Length);
+		int index = Random.Range(0, (int)difficulty);
+		return previewShapes[index];
 	}
 
 	public List<Shape> GetLastShapes(int count) {
