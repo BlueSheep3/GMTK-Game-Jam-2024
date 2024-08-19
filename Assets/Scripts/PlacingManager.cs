@@ -49,6 +49,7 @@ class PlacingManager : MonoBehaviour
 		// place before moving, so that the CanBePlacedHere check works
 		if(canPlace && !isPlacing && Input.GetMouseButtonDown(0) && currentPreviewShape.CanBePlacedHere()) {
 			placedShapes.Add(currentPreviewShape.Place());
+			OnPlaceShapeEffect();
 			previewManager.GoNext();
 			isPlacing = true;
 			SelectRandomShape();
@@ -61,6 +62,11 @@ class PlacingManager : MonoBehaviour
 		Inst = null;
 	}
 
+	void OnPlaceShapeEffect() {
+		foreach(Shape shape in placedShapes) {
+			if(shape) shape.OnPlacedShape();
+		}
+	}
 
 	internal void EndGame() {
 		GameCamera.follow = false;

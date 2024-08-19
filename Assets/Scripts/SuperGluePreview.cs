@@ -2,6 +2,8 @@ using UnityEngine;
 
 class SuperGluePreview : PreviewShape
 {
+	[SerializeField] bool strong = true;
+
 	public override bool CanBePlacedHere() {
 		return collisionCount != 0;
 	}
@@ -20,8 +22,11 @@ class SuperGluePreview : PreviewShape
 			if(hit.collider.isTrigger) continue;
 			GameObject gluedObject = hit.rigidbody.gameObject;
 			transform.parent = gluedObject.transform;
-			if(prevBody)
-				gluedObject.AddComponent<FixedJoint2D>().connectedBody = prevBody;
+			if(prevBody) {
+				FixedJoint2D joint = gluedObject.AddComponent<FixedJoint2D>();
+				joint.connectedBody = prevBody;
+				if(!strong) joint.breakForce = 1000;
+			}
 			prevBody = hit.rigidbody;
 		}
 

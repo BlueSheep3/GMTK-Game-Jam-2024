@@ -2,13 +2,15 @@ using UnityEngine;
 
 class Shape : MonoBehaviour
 {
-	[SerializeField] Rigidbody2D rb;
+	[SerializeField] protected Rigidbody2D rb;
 	[SerializeField] AudioSource audioSource;
 	[SerializeField] AudioClip clip;
 
 	internal bool hasCollided = false;
 	internal bool enabeled = false;
 
+
+	internal virtual void OnPlacedShape() {}
 
 	void OnCollisionEnter2D(Collision2D collision) {
 		if(!enabeled) return;
