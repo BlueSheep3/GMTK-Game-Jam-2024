@@ -17,6 +17,7 @@ class SuperGluePreview : PreviewShape
 		hits = hits[0..amount];
 		Rigidbody2D prevBody = null;
 		foreach(RaycastHit2D hit in hits) {
+			if(hit.collider.isTrigger) continue;
 			GameObject gluedObject = hit.rigidbody.gameObject;
 			transform.parent = gluedObject.transform;
 			if(prevBody)

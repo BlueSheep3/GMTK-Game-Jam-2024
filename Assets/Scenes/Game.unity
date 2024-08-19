@@ -819,6 +819,7 @@ GameObject:
   - component: {fileID: 934858031}
   - component: {fileID: 934858033}
   - component: {fileID: 934858034}
+  - component: {fileID: 934858035}
   m_Layer: 0
   m_Name: Island
   m_TagString: Untagged
@@ -943,6 +944,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &934858035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 934858030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13380928efbc0494b921324a71a3672c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1099633970
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1354,6 +1367,10 @@ PrefabInstance:
       value: WaterVisual
       objectReference: {fileID: 0}
     - target: {fileID: 6391950484460406458, guid: 5c6c37049dc70b54b9d22b71a1b5d4a6, type: 3}
+      propertyPath: m_SortingOrder
+      value: 21
+      objectReference: {fileID: 0}
+    - target: {fileID: 8639349385510605457, guid: 5c6c37049dc70b54b9d22b71a1b5d4a6, type: 3}
       propertyPath: m_SortingOrder
       value: 21
       objectReference: {fileID: 0}
