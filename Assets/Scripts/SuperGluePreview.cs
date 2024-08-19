@@ -25,7 +25,7 @@ class SuperGluePreview : PreviewShape
 			if(prevBody) {
 				FixedJoint2D joint = gluedObject.AddComponent<FixedJoint2D>();
 				joint.connectedBody = prevBody;
-				if(!strong) joint.breakForce = 1000;
+				if(!strong) joint.breakForce = 400;
 			}
 			prevBody = hit.rigidbody;
 		}
