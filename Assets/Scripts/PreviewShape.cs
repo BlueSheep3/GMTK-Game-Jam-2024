@@ -2,26 +2,26 @@ using UnityEngine;
 
 class PreviewShape : MonoBehaviour
 {
-	[SerializeField] SpriteRenderer sr;
+	[SerializeField] protected SpriteRenderer sr;
 
-	int collisionCount = 0;
+	protected int collisionCount = 0;
 
 
 	void Awake() {
-		CanNowBePlaced();
+		IsNoLongerColliding();
 		if(gameObject.TryGetComponent(out Rigidbody2D rb)) {
 			rb.bodyType = RigidbodyType2D.Kinematic;
 		}
 	}
 
 	void OnTriggerEnter2D(Collider2D other) {
-		if(collisionCount == 0) CanNoLongerBePlaced();
+		if(collisionCount == 0) IsNowColliding();
 		collisionCount++;
 	}
 
 	void OnTriggerExit2D(Collider2D other) {
 		collisionCount--;
-		if(collisionCount == 0) CanNowBePlaced();
+		if(collisionCount == 0) IsNoLongerColliding();
 		#if UNITY_EDITOR
 		if(collisionCount < 0)
 			Debug.LogWarning($"CollisionCount is less than 0 (collisionCount == {collisionCount})");
@@ -29,15 +29,15 @@ class PreviewShape : MonoBehaviour
 	}
 
 
-	internal Sprite GetPreviewSprite() {
+	internal virtual Sprite GetPreviewSprite() {
 		return sr.sprite;
 	}
 
-	public bool CanBePlacedHere() {
+	public virtual bool CanBePlacedHere() {
 		return collisionCount == 0;
 	}
 
-	public Shape Place() {
+	public virtual Shape Place() {
 		if(!gameObject.TryGetComponent(out Shape shape)) Debug.LogError("no shape script on the object");
 		shape.enabled = true;
 		shape.enabeled = true;
@@ -53,11 +53,11 @@ class PreviewShape : MonoBehaviour
 	}
 
 
-	void CanNoLongerBePlaced() {
+	protected virtual void IsNowColliding() {
 		sr.color = new Color(1, 0.5f, 0.5f, 0.45f);
 	}
 
-	void CanNowBePlaced() {
+	protected virtual void IsNoLongerColliding() {
 		sr.color = new Color(1, 1, 1, 0.55f);
 	}
 }
