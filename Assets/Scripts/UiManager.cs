@@ -15,7 +15,7 @@ class UiManager : MonoBehaviour
 		PlacingManager pm = PlacingManager.Inst;
 		int height = pm.maxHeight;
 		int count = pm.placedShapes.Count;
-		scoreText.text = "Height: " + height + "m\nShapes: " + count;
+		scoreText.text = $"Height: {height}m\nScore: {count}";
 	}
 
 	internal void EndGame() {

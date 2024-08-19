@@ -388,7 +388,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 2
-  m_Size: {x: 60, y: 40}
+  m_Size: {x: 80, y: 60}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -406,7 +406,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f69724e511bb9694197e9d25534b2cfa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementMult: 1
+  movementMult: 0.98
   scaleMult: 0.95
 --- !u!1 &458992599700187040
 GameObject:

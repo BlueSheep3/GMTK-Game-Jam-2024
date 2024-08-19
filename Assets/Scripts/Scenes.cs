@@ -22,6 +22,7 @@ static class Scenes
 	}
 
 	public static void QuitGame() {
+		Savedata.Save(Savedata.settings);
 		#if UNITY_EDITOR
 			UnityEditor.EditorApplication.ExitPlaymode();
 		#elif UNITY_STANDALONE

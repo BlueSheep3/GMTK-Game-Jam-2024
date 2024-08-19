@@ -12,6 +12,7 @@ static class Savedata
 		public int version = VERSION;
 		public int maxHeight = 0;
 		public int maxShapes = 0;
+		public int volume = 50;
 	}
 
 
@@ -33,6 +34,7 @@ static class Savedata
 
 		Settings s = JsonUtility.FromJson<Settings>(File.ReadAllText(path + "/settings.json")) ?? new Settings();
 		while(s.version < VERSION) UpdateSettings(s);
+		AudioListener.volume = s.volume / 100f;
 		Debug.Log("(SAVE): Loaded Settings");
 		return s;
 	}
