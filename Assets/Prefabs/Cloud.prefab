@@ -53,7 +53,7 @@ MonoBehaviour:
   - {fileID: 588415286, guid: 9b86c09fafda818449f76b4b0e54e95e, type: 3}
   - {fileID: 166634530, guid: 9b86c09fafda818449f76b4b0e54e95e, type: 3}
   sr: {fileID: 6057647015955726168}
-  parallaxMult: 0.7
+  parallaxMult: 0.5
 --- !u!212 &6057647015955726168
 SpriteRenderer:
   m_ObjectHideFlags: 0
