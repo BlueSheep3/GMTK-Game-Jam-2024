@@ -212,7 +212,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 281690549873187471}
   audioSource: {fileID: 2227630536635779495}
-  clip: {fileID: 0}
+  clip: {fileID: 8300000, guid: fca0d8882b6b7eb4897aba62c00160f0, type: 3}
   spriteRenderer: {fileID: 281690549873187468}
   boxCollider: {fileID: 7508726035234502950}
 --- !u!212 &281690549873187468 stripped
