@@ -7,6 +7,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6426299871072068965, guid: c3ed5caf2f771b149b32d5964c332e76, type: 3}
+      propertyPath: clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 8b6f5b9be51f619439aab546de53b58a, type: 3}
     - target: {fileID: 6426299871072068969, guid: c3ed5caf2f771b149b32d5964c332e76, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -65,7 +69,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6426299871072068975, guid: c3ed5caf2f771b149b32d5964c332e76, type: 3}
       propertyPath: m_Name
-      value: SuperGlue
+      value: Super Glue
       objectReference: {fileID: 0}
     - target: {fileID: 7637892254971714004, guid: c3ed5caf2f771b149b32d5964c332e76, type: 3}
       propertyPath: m_Material
@@ -176,6 +180,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sr: {fileID: 4231531118333210196}
+  strong: 1
 --- !u!212 &4231531118333210196 stripped
 SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 6426299871072068969, guid: c3ed5caf2f771b149b32d5964c332e76, type: 3}

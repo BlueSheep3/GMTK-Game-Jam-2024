@@ -23,17 +23,21 @@ class Shape : MonoBehaviour
 			PlacingManager.Inst.isPlacing = false;
 			PlacingManager.Inst.UpdateHeight(transform.position.y);
 		}
-		if(!audioSource.isPlaying) {
-			if(clip == null) {
-				// Debug.LogError("no clip");
-				return;
-			}
-			float volume = rb.velocity.magnitude / 10f;
-			volume = Mathf.Sqrt(volume);
-			volume = Mathf.Clamp(volume, 0.1f, 1f);
-			audioSource.pitch = Random.Range(0.9f, 1.1f);
-			audioSource.PlayOneShot(clip, volume);
+		float vel = rb.velocity.magnitude;
+		if(!audioSource.isPlaying && vel > 1f) {
+			float volume = vel / 20f;
+			PlayCollisionSound(volume);
 		}
+	}
+
+	public void PlayCollisionSound(float volume) {
+		if(clip == null) return;
+		volume = Mathf.Sqrt(volume);
+		volume = Mathf.Clamp(volume, 0.1f, 1f);
+		audioSource.pitch = Random.Range(0.8f, 1.1f);
+		audioSource.volume = volume;
+		audioSource.clip = clip;
+		audioSource.Play();
 	}
 
 	protected void OnTriggerEnter2D(Collider2D other) {

@@ -193,7 +193,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 281690549873187471}
   audioSource: {fileID: 2227630536635779495}
-  clip: {fileID: 0}
+  clip: {fileID: 8300000, guid: d16a20b9aadb4f04aa9457f021e94ad9, type: 3}
 --- !u!50 &281690549873187471 stripped
 Rigidbody2D:
   m_CorrespondingSourceObject: {fileID: 6426299871072068970, guid: c3ed5caf2f771b149b32d5964c332e76, type: 3}

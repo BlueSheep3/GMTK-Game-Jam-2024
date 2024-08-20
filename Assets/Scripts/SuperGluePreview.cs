@@ -32,10 +32,11 @@ class SuperGluePreview : PreviewShape
 
 		Destroy(rb);
 		Destroy(GetComponent<Collider2D>());
-		Destroy(GetComponent<AudioSource>());
 		// Shape is a required component by the PacingManager
 
 		Invoke(nameof(CleanupAfterPlacing), 0.25f);
+		Invoke(nameof(RemoveAudioSource), 1f);
+		shape.PlayCollisionSound(1f);
 		sr.color = new Color(1, 1, 1, 1);
 		return shape;
 	}
@@ -46,6 +47,11 @@ class SuperGluePreview : PreviewShape
 		Destroy(this);
 		// the color can sometimes change after placing it
 		sr.color = new Color(1, 1, 1, 1);
+	}
+
+	void RemoveAudioSource() {
+		// removing this earlier stops the sound effect
+		Destroy(GetComponent<AudioSource>());
 	}
 
 	protected override void IsNowColliding() {

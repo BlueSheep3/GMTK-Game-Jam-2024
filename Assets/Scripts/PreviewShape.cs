@@ -47,6 +47,7 @@ class PreviewShape : MonoBehaviour
 		if(gameObject.TryGetComponent(out Collider2D col)) {
 			col.isTrigger = false;
 		}
+		shape.PlayCollisionSound(0.5f);
 		sr.color = new Color(1, 1, 1, 1);
 		Destroy(this);
 		return shape;
