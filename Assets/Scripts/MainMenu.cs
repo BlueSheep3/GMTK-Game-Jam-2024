@@ -35,7 +35,7 @@ class MainMenu : MonoBehaviour
 
 	public void ChangeFullscreen() {
 		if(Screen.fullScreen) {
-			Screen.SetResolution(1440, 810, false);
+			Screen.SetResolution(960, 540, false);
 		} else {
 			const float ASPECT_RATIO = 16f / 9f;
 			int width = Screen.currentResolution.width;

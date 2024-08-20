@@ -8,7 +8,7 @@ class MenuShapesSpawner : MonoBehaviour
 	int timer = 0;
 
 	void FixedUpdate() {
-		if(timer++ < 10) return;
+		if(timer++ < 16) return;
 		timer = 0;
 		int index = Random.Range(0, sprites.Length);
 		if(index / (float)sprites.Length >= Savedata.settings.maxHeight / 100f) return;
