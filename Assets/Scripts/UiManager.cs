@@ -10,7 +10,6 @@ class UiManager : MonoBehaviour
 	[SerializeField] GameObject gameOver;
 	[SerializeField] TMP_Text finalScoreText;
 
-	// TODO update all the information in the in game UI
 	void Update() {
 		PlacingManager pm = PlacingManager.Inst;
 		int height = pm.maxHeight;
