@@ -48,11 +48,13 @@ class PlacingManager : MonoBehaviour
 
 		// place before moving, so that the CanBePlacedHere check works
 		if(canPlace && !isPlacing && Input.GetMouseButtonDown(0) && currentPreviewShape.CanBePlacedHere()) {
-			placedShapes.Add(currentPreviewShape.Place());
-			OnPlaceShapeEffect();
-			previewManager.GoNext();
-			isPlacing = true;
-			SelectRandomShape();
+			if(currentPreviewShape.Place() is {}shape) {
+				placedShapes.Add(shape);
+				OnPlaceShapeEffect();
+				previewManager.GoNext();
+				isPlacing = true;
+				SelectRandomShape();
+			}
 		}
 
 		currentPreviewShape.transform.position = mousePos;
