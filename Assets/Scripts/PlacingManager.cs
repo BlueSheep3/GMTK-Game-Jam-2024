@@ -29,7 +29,13 @@ class PlacingManager : MonoBehaviour
 	}
 
 	void Start() {
-		for(int i = 0; i < 5; i++) {
+		// dont start with glue, because you cant use it
+		PreviewShape firstPreviewShape = GetPreviewShape();
+		while(firstPreviewShape.gameObject.name.Contains("Glue"))
+			firstPreviewShape = GetPreviewShape();
+		previewShapeQueue.Enqueue(firstPreviewShape);
+
+		for(int i = 0; i < 4; i++) {
 			previewShapeQueue.Enqueue(GetPreviewShape());
 		}
 		previewManager.StartFunc();
@@ -48,7 +54,7 @@ class PlacingManager : MonoBehaviour
 
 		// place before moving, so that the CanBePlacedHere check works
 		if(canPlace && !isPlacing && Input.GetMouseButtonDown(0) && currentPreviewShape.CanBePlacedHere()) {
-			if(currentPreviewShape.Place() is {}shape) {
+			if(currentPreviewShape.Place() is {} shape) {
 				placedShapes.Add(shape);
 				OnPlaceShapeEffect();
 				previewManager.GoNext();
