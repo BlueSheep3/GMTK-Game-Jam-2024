@@ -2964,12 +2964,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shapePrefab: {fileID: 6477099314204543867, guid: 29d475348bd67004ea6cc665f1f7f876, type: 3}
   sprites:
-  - {fileID: 21300000, guid: dd8eb2a53909345419769e69851a9290, type: 3}
   - {fileID: 21300000, guid: 4ea203cc6b1f7f74181564ac77730dd1, type: 3}
-  - {fileID: 21300000, guid: 7694144b146a170418aa937138c0fc7b, type: 3}
+  - {fileID: 21300000, guid: dd8eb2a53909345419769e69851a9290, type: 3}
+  - {fileID: 21300000, guid: 2abcdfac3bb59e041bd8d296e1d44aca, type: 3}
   - {fileID: 21300000, guid: 5e429d1a47c6c8a408f62716f0d97dcb, type: 3}
+  - {fileID: 21300000, guid: efe2efc988e25b144b1ee380dc2d36c9, type: 3}
   - {fileID: 21300000, guid: 84ff26d8645e96e4b93d16c7c0270eae, type: 3}
+  - {fileID: 21300000, guid: 7694144b146a170418aa937138c0fc7b, type: 3}
+  - {fileID: 21300000, guid: 3ef0b3d6ea516f840a22469766e45df0, type: 3}
+  - {fileID: 21300000, guid: 123eada3bb3384943b00c8e8e27a82ba, type: 3}
+  - {fileID: 21300000, guid: fc9675acb9b2f6f43baa7993f45af797, type: 3}
+  - {fileID: 21300000, guid: 356d67aefb2da5d498cc85ca01f7dd22, type: 3}
   - {fileID: 21300000, guid: 2593eae0ea703a04699861ee910c0b7b, type: 3}
+  - {fileID: 21300000, guid: 07baffb2b86b58745900ca86953ec6a3, type: 3}
+  - {fileID: 21300000, guid: f917a21bc49b2f340b62d1132a387b5e, type: 3}
+  - {fileID: 21300000, guid: 4bfac2737f93a0f4c97a0fd62400cd16, type: 3}
+  - {fileID: 21300000, guid: 0aa761461dbc3b94b8634c77820882f2, type: 3}
 --- !u!4 &1746744139
 Transform:
   m_ObjectHideFlags: 0
