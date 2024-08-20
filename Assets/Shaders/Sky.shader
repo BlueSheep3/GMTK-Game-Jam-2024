@@ -62,8 +62,8 @@ Shader "Custom/Sky"
 				fixed y = clamp(0, 1, IN.texcoord.y - middle - 0.05 + heightInfluence);
 				fixed4 gradient = lerp(_LowColor, _HighColor, y);
 				fixed4 OUT = gradient * tex2D(_MainTex, IN.texcoord) * IN.color;
-				if(_Height > 75) {
-					OUT.a = 1 - smoothstep(40, 100, _Height);
+				if(_Height > 25) {
+					OUT.a = 1 - smoothstep(25, 50, _Height);
 				}
 				return OUT;
 			}
